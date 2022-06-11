@@ -16,7 +16,7 @@ const toggleDisplay = () => {
 }
 
     return(
-        <Card sx={{ maxWidth: 250, minWidth: 250,  maxHeight: 350, minHeight: 350 }}>
+        <Card sx={{ maxWidth: 250, minWidth: 250,  maxHeight: 375, minHeight: 375 }}>
          <CardActionArea>
         {
         display ? 
