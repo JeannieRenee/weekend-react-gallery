@@ -8,8 +8,6 @@ import './App.css';
 import Header from '../Header/Header'; 
 // import GalleryList
 import GalleryList from '../GalleryList/GalleryList'; 
-// import GalleryItem
-//import GalleryItem from '../GalleryItem/GalleryItem'; 
 
 function App() {
   let [galleryList, setGalleryList] = useState([]);
@@ -33,16 +31,6 @@ function App() {
       console.log('Get require failed', error)
   })
 }
-
-  //   axios.get('/gallery')
-  //   .then(response => {
-  //       setGalleryList(response.data)
-  //   })
-  //   .catch(err => {
-  //     alert('error getting gallery');
-  //     console.log(err);
-  //   })
-  // };
 
   // function to tally likes
   //PUT
