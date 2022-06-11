@@ -37,12 +37,11 @@ function GalleryItem ({picture, likes}) {
             {picture.description}
         </p>  
         }
+        </CardActionArea>
         <p 
         className="name-text">
             {picture.name}
         </p>
-        </CardActionArea>
-        
         <Button variant="outlined" 
             onClick={() => {likes(picture.id)}} 
             key={picture.id}
