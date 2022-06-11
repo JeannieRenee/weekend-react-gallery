@@ -23,20 +23,31 @@ function App() {
   //GET
   const fetchGallery = () => {
     console.log('in fetchGallery');
-    axios.get('/gallery')
-    .then(response => {
-        setGalleryList(response.data)
-    })
-    .catch(err => {
-      alert('error getting gallery');
-      console.log(err);
-    })
-  };
+    axios({
+      url:'/gallery',
+      method:'GET'
+  }).then((response)=>{
+      console.log('Get',response.data);
+      setGalleryList(response.data)
+  }).catch((error)=>{
+      console.log('Get require failed', error)
+  })
+}
+
+  //   axios.get('/gallery')
+  //   .then(response => {
+  //       setGalleryList(response.data)
+  //   })
+  //   .catch(err => {
+  //     alert('error getting gallery');
+  //     console.log(err);
+  //   })
+  // };
 
   // function to tally likes
   //PUT
   function handleLikes(id){
-    console.log('in handleLikes');
+    console.log('in handleLikes', id);
     axios.put(`/gallery/like/${id}`)
         .then(() =>{
             console.log('like worked')
