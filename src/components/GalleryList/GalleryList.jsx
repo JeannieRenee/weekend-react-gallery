@@ -2,8 +2,6 @@
 import GalleryItem from '../GalleryItem/GalleryItem'; 
 
 function GalleryList ({galleryList, likes}) {
-    console.log('galleryList:', galleryList)
-
     return(
         <div className="flex-container">
             {/* map over each item in gallery and end to GalleryItem */}

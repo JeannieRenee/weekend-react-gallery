@@ -20,12 +20,10 @@ function App() {
   // function to fetch the gallery data 
   //GET
   const fetchGallery = () => {
-    console.log('in fetchGallery');
     axios({
       url:'/gallery',
       method:'GET'
   }).then((response)=>{
-      console.log('Get',response.data);
       setGalleryList(response.data)
   }).catch((error)=>{
       console.log('Get require failed', error)
@@ -38,7 +36,6 @@ function App() {
     console.log('in handleLikes', id);
     axios.put(`/gallery/like/${id}`)
         .then(() =>{
-            console.log('like worked')
             fetchGallery();
         })
         .catch((err) =>{
