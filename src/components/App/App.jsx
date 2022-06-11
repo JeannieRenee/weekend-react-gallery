@@ -51,8 +51,8 @@ function App() {
       <div className="App">
         <Header />
         <GalleryList 
-        galleryList={galleryList}
-        likes={handleLikes}
+          galleryList={galleryList}
+          likes={handleLikes}
         />
       </div>
     );
