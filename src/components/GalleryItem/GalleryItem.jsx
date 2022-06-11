@@ -12,7 +12,6 @@ const toggleDisplay = () => {
 }
 
     return(
-
         <div>
             {
             display ? 

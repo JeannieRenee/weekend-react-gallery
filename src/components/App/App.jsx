@@ -47,7 +47,7 @@ function App() {
   // function to tally likes
   //PUT
   function handleLikes(id){
-    console.log('in handleLikes');
+    console.log('in handleLikes', id);
     axios.put(`/gallery/like/${id}`)
         .then(() =>{
             console.log('like worked')
