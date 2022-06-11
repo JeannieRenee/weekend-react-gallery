@@ -1,5 +1,9 @@
 import { useState} from 'react';
 
+import * as React from 'react';
+import Card from '@mui/material/Card';
+import CardMedia from '@mui/material/CardMedia';
+import { Button, CardActionArea } from '@mui/material';
 
 function GalleryItem ({picture, likes}) {
     console.log('in GalleryItem:', picture.id)
@@ -12,24 +16,29 @@ const toggleDisplay = () => {
 }
 
     return(
-        <div>
-            {
-            display ? 
-            <img src={picture.path} onClick={() => {toggleDisplay(picture.id)}}/>  :     
-            picture.description
-            }
-            <br/>
-            <button onClick={() => {likes(picture.id)}} key={picture.id}>like!</button>
-            <p>This picture has {picture.likes} likes!</p>
-        </div>
-        
-        // <div>
-        //     <img src={picture.path} onClick={() => {toggleDisplay(picture.id)}}/> 
-        //     <br/>
-        //     <button onClick={() => {likes(picture.id)}} key={picture.id}>like!</button>
-        //     <p>This picture has {picture.likes} likes!</p>
-        // </div>
-    )
+        <Card sx={{ maxWidth: 250, minWidth: 250,  maxHeight: 350, minHeight: 350 }}>
+         <CardActionArea>
+        {
+        display ? 
+        <CardMedia
+            component="img"
+            height="250"
+            image= {picture.path}
+            alt= {picture.name}
+            onClick={() => {toggleDisplay(picture.id)}}
+        /> :
+        <p className="description-text"  onClick={() => {toggleDisplay(picture.id)}}>{picture.description}</p>  
+        }
+        <p className="name-text">{picture.name}</p>
+        <Button variant="outlined" 
+            onClick={() => {likes(picture.id)}} 
+            key={picture.id}
+        >
+            💙 {picture.likes}
+        </Button>
+      </CardActionArea>
+    </Card>
+  );
 }
 
 export default GalleryItem;

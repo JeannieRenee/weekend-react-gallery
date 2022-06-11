@@ -2,7 +2,7 @@ function Header () {
     return (
         <>
             <header className="App-header">
-              <h1 className="App-title">Gallery of My Life</h1>
+                <img src='https://www.theaudiodb.com/images/media/artist/logo/syuvqt1531846443.png'/> 
             </header>
         </>
     );
