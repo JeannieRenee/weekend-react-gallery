@@ -31,11 +31,11 @@ function GalleryItem ({picture, likes}) {
             onClick={() => {toggleDisplay(picture.id)}}
         /> :
         <p 
-            className="description-text"  
+            className="description-text" 
             onClick={() => {toggleDisplay(picture.id)}}
         >
-            {picture.description}
-        </p>  
+            {picture.description}  
+        </p>
         }
         </CardActionArea>
         <p 
