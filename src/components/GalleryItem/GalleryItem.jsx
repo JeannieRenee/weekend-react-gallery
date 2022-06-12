@@ -7,6 +7,7 @@ import { CardActionArea } from '@mui/material';
 import IconButton from '@mui/material/IconButton';
 import DeleteIcon from '@mui/icons-material/Delete';
 import FavoriteIcon from '@mui/icons-material/Favorite';
+import Typography from '@mui/material/Typography';
 
 function GalleryItem ({picture, likes, trash}) {
 
@@ -33,18 +34,25 @@ function GalleryItem ({picture, likes, trash}) {
             alt= {picture.name}
             onClick={() => {toggleDisplay(picture.id)}}
         /> :
-        <p 
+        <Typography 
             className="description-text" 
             onClick={() => {toggleDisplay(picture.id)}}
+            variant="body1"
+            gutterBottom 
+            component="div"
         >
             {picture.description}  
-        </p>
+        </Typography>
         }
         </CardActionArea>
-        <p 
-        className="name-text">
+        <Typography 
+            className="name-text" 
+            variant="h5"
+            gutterBottom 
+            component="div"
+        >
             {picture.name}
-        </p>
+        </Typography>
         <span>
                 <IconButton 
                     onClick={() => {likes(picture.id)}} 
