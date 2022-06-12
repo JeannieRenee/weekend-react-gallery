@@ -8,6 +8,9 @@ import './App.css';
 import Header from '../Header/Header'; 
 // import GalleryList
 import GalleryList from '../GalleryList/GalleryList'; 
+// import GalleryForm 
+import GalleryForm from '../GalleryForm/GalleryForm';
+
 
 function App() {
   let [galleryList, setGalleryList] = useState([]);
@@ -30,7 +33,7 @@ function App() {
   })
 }
 
-  // function to tally likes
+  //function to tally likes
   //PUT
   function handleLikes(id){
     axios.put(`/gallery/like/${id}`)
@@ -41,7 +44,7 @@ function App() {
             console.log('like failed', error);
         })
 }
-// function to delete gallery item
+//function to delete gallery item
   //DELETE
   function deleteGalleryItem(id){
     console.log('in delete', id);
@@ -55,10 +58,32 @@ function App() {
         console.log('Delete request failed', error);
     })
 }
+//function to post gallery item
+  //POST
+  const onCreateCharacter = (newCharacter) => {
+    axios({
+      method: 'POST',
+      url: '/gallery',
+      data: newCharacter
+    })
+      .then((response) => {
+        fetchGallery();
+      })
+      .catch(function (error) {
+        console.log('Error on add:', error);
+      });
+  }
+
+
+
+
 
     return (
       <div className="App">
         <Header />
+        <GalleryForm 
+          onCreateCharacter={onCreateCharacter}
+        />
         <GalleryList 
           galleryList={galleryList}
           likes={handleLikes}

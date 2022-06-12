@@ -6,6 +6,22 @@ const pool = require('../modules/pool.js');
 
 // DO NOT MODIFY THIS FILE FOR BASE MODE
 
+// GET Route
+router.get('/', (req, res) => {
+    const sqlText = `
+        SELECT * FROM "galleryList"
+        ORDER BY "id"; 
+    `;
+    pool.query(sqlText)
+    .then((response) => {
+        res.send(response.rows);
+    })
+    .catch((error) => {
+        console.log('Failed to GET list', error)
+        res.sendStatus(500);
+    });
+});
+
 // PUT Route
 router.put('/like/:id', (req, res) => {
     let id = req.params.id
@@ -27,22 +43,6 @@ router.put('/like/:id', (req, res) => {
         });
 }); 
 
-// GET Route
-router.get('/', (req, res) => {
-    const sqlText = `
-        SELECT * FROM "galleryList"
-        ORDER BY "id"; 
-    `;
-    pool.query(sqlText)
-    .then((response) => {
-        res.send(response.rows);
-    })
-    .catch((error) => {
-        console.log('Failed to GET list', error)
-        res.sendStatus(500);
-    });
-});
-
 //DELETE Route
 router.delete('/:id', (req, res) => {
     let id = req.params.id;
@@ -61,5 +61,22 @@ router.delete('/:id', (req, res) => {
             res.sendStatus(500);
         });
 }); 
+
+//POST Route
+router.post('/', (req, res) => {
+    const character = req.body;
+    const sqlText = `INSERT INTO "galleryList" ("path", "name", "description", "likes")
+                     VALUES ($1, $2, $3, $4)`;
+    const sqlParams = [character.image, character.name, character.bio, 0]
+    pool.query(sqlText, sqlParams)
+        .then((result) => {
+            console.log(`Added character to the database`, character);
+            res.sendStatus(201);
+        })
+        .catch((error) => {
+            console.log(`Error making database query ${sqlText}`, error);
+            res.sendStatus(500);
+        })
+})
 
 module.exports = router;
