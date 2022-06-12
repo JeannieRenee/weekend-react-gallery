@@ -40,6 +40,12 @@ function GalleryItem ({picture, likes, trash}) {
             variant="body1"
             gutterBottom 
             component="div"
+            sx={{ 
+                maxWidth: 250, 
+                minWidth: 250,  
+                maxHeight: 250, 
+                minHeight: 250 
+            }}
         >
             {picture.description}  
         </Typography>
