@@ -32,7 +32,6 @@ function GalleryForm({onCreateCharacter}) {
         onSubmit={onSubmit}
         >
             <TextField 
-                required
                 id="outlined-basic" 
                 label="Name:" 
                 variant="outlined"                 
@@ -41,7 +40,6 @@ function GalleryForm({onCreateCharacter}) {
                 value={newCharacterName}
             />
             <TextField 
-                required
                 id="outlined-basic" 
                 label="Bio:" 
                 variant="outlined"   
@@ -50,7 +48,6 @@ function GalleryForm({onCreateCharacter}) {
                 value={newCharacterBio}
             />
             <TextField 
-                required
                 id="outlined-basic" 
                 label="Image URL:" 
                 variant="outlined"   

@@ -21,24 +21,28 @@ function GalleryItem ({picture, likes, trash}) {
         <Card sx={{ 
             maxWidth: 250, 
             minWidth: 250,  
-            maxHeight: 375, 
-            minHeight: 375 
+            maxHeight: 350, 
+            minHeight: 350 
         }}>
         <CardActionArea>
         { 
         display ? 
         <CardMedia
             component="img"
-            height="250"
             image= {picture.path}
             alt= {picture.name}
             onClick={() => {toggleDisplay(picture.id)}}
+            sx={{ 
+                maxWidth: 250, 
+                minWidth: 250,  
+                maxHeight: 250, 
+                minHeight: 250 
+            }}
         /> :
         <Typography 
             className="description-text" 
             onClick={() => {toggleDisplay(picture.id)}}
             variant="body1"
-            gutterBottom 
             component="div"
             sx={{ 
                 maxWidth: 250, 

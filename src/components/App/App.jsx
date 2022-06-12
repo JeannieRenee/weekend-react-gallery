@@ -73,11 +73,6 @@ function App() {
         console.log('Error on add:', error);
       });
   }
-
-
-
-
-
     return (
       <div className="App">
         <Header />
