@@ -14,9 +14,9 @@ router.put('/like/:id', (req, res) => {
         SET "likes" = likes + 1
         WHERE "id" = $1; 
     `;
-    const sqlParams = [
-        id
-    ];
+
+    const sqlParams = [id];
+
     pool.query(sqlQuery, sqlParams)
         .then(() => {
             res.sendStatus(200);
@@ -26,18 +26,6 @@ router.put('/like/:id', (req, res) => {
             res.sendStatus(500);
         });
 }); 
-
-
-
-//     console.log(req.params);
-//     const galleryId = req.params.id;
-//     for(const galleryItem of galleryItems) {
-//         if(galleryItem.id == galleryId) {
-//             galleryItem.likes += 1;
-//         }
-//     }
-//     res.sendStatus(200);
-// });  END PUT Route
 
 // GET Route
 router.get('/', (req, res) => {
@@ -55,8 +43,23 @@ router.get('/', (req, res) => {
     });
 });
 
-// router.get('/', (req, res) => {
-//     res.send(galleryItems);
-// }); // END GET Route
+//DELETE Route
+router.delete('/:id', (req, res) => {
+    let id = req.params.id;
+    console.log("Delete request for:", id);
+    const sqlQuery = `
+        DELETE FROM "galleryList"
+        WHERE "id" = $1; 
+    `;
+    const sqlParam = [id]
+    pool.query(sqlQuery, sqlParam)
+        .then(() => {
+            res.sendStatus(200);
+        })
+        .catch((error) => {
+            console.log(`DELETE failed, ${error}`);
+            res.sendStatus(500);
+        });
+}); 
 
 module.exports = router;

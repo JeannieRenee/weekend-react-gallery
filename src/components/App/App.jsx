@@ -33,14 +33,27 @@ function App() {
   // function to tally likes
   //PUT
   function handleLikes(id){
-    console.log('in handleLikes', id);
     axios.put(`/gallery/like/${id}`)
         .then(() =>{
             fetchGallery();
         })
-        .catch((err) =>{
-            console.log('like failed', err);
+        .catch((error) =>{
+            console.log('like failed', error);
         })
+}
+// function to delete gallery item
+  //DELETE
+  function deleteGalleryItem(id){
+    console.log('in delete', id);
+    axios({
+        url:'/gallery/'+id,
+        method:'DELETE'
+    }).then(()=>{
+        console.log('Delete request worked');
+        fetchGallery();
+    }).catch((error)=>{
+        console.log('Delete request failed', error);
+    })
 }
 
     return (
@@ -49,6 +62,7 @@ function App() {
         <GalleryList 
           galleryList={galleryList}
           likes={handleLikes}
+          trash={deleteGalleryItem}
         />
       </div>
     );

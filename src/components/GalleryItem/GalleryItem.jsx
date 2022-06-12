@@ -5,7 +5,7 @@ import Card from '@mui/material/Card';
 import CardMedia from '@mui/material/CardMedia';
 import { Button, CardActionArea } from '@mui/material';
 
-function GalleryItem ({picture, likes}) {
+function GalleryItem ({picture, likes, trash}) {
 
     const [display, setDisplay] = useState(true);
 
@@ -42,13 +42,19 @@ function GalleryItem ({picture, likes}) {
         className="name-text">
             {picture.name}
         </p>
-        <Button variant="outlined" 
-            onClick={() => {likes(picture.id)}} 
-            key={picture.id}
-        >
-            💙 {picture.likes}
-        </Button>
-
+        <span>
+            <Button variant="outlined" 
+                onClick={() => {likes(picture.id)}} 
+                key={picture.id}
+            >
+                💙 {picture.likes}
+            </Button>
+            <Button variant="outlined" 
+                onClick={() => {trash(picture.id)}} 
+            >
+                🗑
+            </Button>
+        </span>
     </Card>
   );
 }
