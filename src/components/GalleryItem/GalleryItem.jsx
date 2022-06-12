@@ -3,8 +3,10 @@ import { useState} from 'react';
 import * as React from 'react';
 import Card from '@mui/material/Card';
 import CardMedia from '@mui/material/CardMedia';
-import { Button, CardActionArea } from '@mui/material';
-import ButtonGroup from '@mui/material/ButtonGroup';
+import { CardActionArea } from '@mui/material';
+import IconButton from '@mui/material/IconButton';
+import DeleteIcon from '@mui/icons-material/Delete';
+import FavoriteIcon from '@mui/icons-material/Favorite';
 
 function GalleryItem ({picture, likes, trash}) {
 
@@ -44,19 +46,20 @@ function GalleryItem ({picture, likes, trash}) {
             {picture.name}
         </p>
         <span>
-            <ButtonGroup size="large" variant="text" aria-label="outlined primary button group">
-                <Button 
+                <IconButton 
                     onClick={() => {likes(picture.id)}} 
                     key={picture.id}
+                    color="primary"
                 >
-                    💙 {picture.likes}
-                </Button>
-                <Button
+                    {picture.likes} <FavoriteIcon />
+                </IconButton>
+                <IconButton
                     onClick={() => {trash(picture.id)}} 
+                    aria-label="delete"
+                    color="error"
                 >
-                    🗑
-                </Button>
-            </ButtonGroup>
+                    <DeleteIcon />
+                </IconButton>
         </span>
     </Card>
   );
