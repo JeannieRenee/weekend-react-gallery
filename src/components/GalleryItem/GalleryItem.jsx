@@ -4,6 +4,7 @@ import * as React from 'react';
 import Card from '@mui/material/Card';
 import CardMedia from '@mui/material/CardMedia';
 import { Button, CardActionArea } from '@mui/material';
+import ButtonGroup from '@mui/material/ButtonGroup';
 
 function GalleryItem ({picture, likes, trash}) {
 
@@ -43,17 +44,19 @@ function GalleryItem ({picture, likes, trash}) {
             {picture.name}
         </p>
         <span>
-            <Button variant="outlined" 
-                onClick={() => {likes(picture.id)}} 
-                key={picture.id}
-            >
-                💙 {picture.likes}
-            </Button>
-            <Button variant="outlined" 
-                onClick={() => {trash(picture.id)}} 
-            >
-                🗑
-            </Button>
+            <ButtonGroup size="large" variant="text" aria-label="outlined primary button group">
+                <Button 
+                    onClick={() => {likes(picture.id)}} 
+                    key={picture.id}
+                >
+                    💙 {picture.likes}
+                </Button>
+                <Button
+                    onClick={() => {trash(picture.id)}} 
+                >
+                    🗑
+                </Button>
+            </ButtonGroup>
         </span>
     </Card>
   );

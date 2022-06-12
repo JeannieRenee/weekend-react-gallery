@@ -1,4 +1,8 @@
 import { useState } from 'react';
+import TextField from '@mui/material/TextField';
+import Box from '@mui/material/Box';
+import * as React from 'react';
+import Button from '@mui/material/Button';
 
 function GalleryForm({onCreateCharacter}) {
     const [newCharacterName, setNewCharacterName] = useState('');
@@ -15,31 +19,48 @@ function GalleryForm({onCreateCharacter}) {
     };
 
     return(
-        <form onSubmit={onSubmit}>
-            <label>Name:</label>
-            <input                
+        <Box
+        component="form"
+        sx={{
+            '& > :not(style)': { m: 1, width: '25ch' },
+        }}
+        noValidate
+        autoComplete="off"
+        onSubmit={onSubmit}
+        >
+            <TextField 
+                id="outlined-basic" 
+                label="Name:" 
+                variant="outlined"                 
                 onChange={(event) => 
                     setNewCharacterName(event.target.value)}
                 value={newCharacterName}
             />
-            <label>Bio:</label>
-            <input
+            <TextField 
+                id="outlined-basic" 
+                label="Bio:" 
+                variant="outlined"   
                 onChange={(event) => 
                     setNewCharacterBio(event.target.value)}
                 value={newCharacterBio}
             />
-            <label>Image:</label>
-            <input
+            <TextField 
+                id="outlined-basic" 
+                label="Image URL:" 
+                variant="outlined"   
                 onChange={(event) => 
                     setNewCharacterImage(event.target.value)}
                 value={newCharacterImage}
             />
-            <button
+            <Button
+                id= "submitButton"
                 type="submit"
+                variant="contained"
+                size="large"
             > 
                 Add Character
-            </button>
-        </form>
+            </Button>
+        </Box>
     )
 }
 
