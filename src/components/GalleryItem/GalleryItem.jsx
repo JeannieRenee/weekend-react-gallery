@@ -25,6 +25,7 @@ function GalleryItem ({picture, likes, trash}) {
             minHeight: 350 
         }}>
         <CardActionArea>
+
         { 
         display ? 
         <CardMedia
@@ -38,7 +39,8 @@ function GalleryItem ({picture, likes, trash}) {
                 maxHeight: 250, 
                 minHeight: 250 
             }}
-        /> :
+        /> 
+        :
         <Typography 
             className="description-text" 
             onClick={() => {toggleDisplay(picture.id)}}
