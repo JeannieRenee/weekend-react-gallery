@@ -10,9 +10,9 @@ I was asked to create an application that displayed a gallery of photos, with fu
 
 On page load, a gallery of photos are fetched from a database and are rendered to the webpage. The user has teh ability to like and delete photos, as well as add their own photos and descriptions. Once and image is clicked, the view toggles to the description view, clicked again it will go back to image view.  When creating apps its of utmost importance to me to keep the UI intuitive, and I love when webpages resemble real life items. 
 
-## Screen Shot
+## Demo
 
-Include one or two screen shots of your project here (optional). Remove if unused.
+![Alt Text](gallery.gif)
 
 ## Built With
 
