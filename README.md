@@ -13,6 +13,8 @@ On page load, a gallery of photos are fetched from a database and are rendered t
 ## Demo
 
 ![Alt Text](gallery.gif)
+</br>
+To see the fully functional site, click [here](https://floating-brushlands-08847.herokuapp.com/).
 
 ## Built With
 
