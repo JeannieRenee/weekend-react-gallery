@@ -3,6 +3,7 @@
 ## Description
 
 _Duration: 12 hours_
+
 This was one of the first applications I made, 9 weeks into learning how to code, and only having learned React.js in three days.
 
 I was asked to create an application that displayed a gallery of photos, with functionality to like and delete photos, as well as a form to add more. Being the dork i am, I decided to make it Roseanne themed.
